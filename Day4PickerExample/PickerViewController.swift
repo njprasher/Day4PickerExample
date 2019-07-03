@@ -12,6 +12,7 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
 
     @IBOutlet weak var lblCourseName: UILabel!
     @IBOutlet weak var lblCollegeName: UILabel!
+    @IBOutlet weak var lblAllDetail: UILabel!
     @IBOutlet weak var pickerCourseName: UIPickerView!
     var courseArray = ["Android Fundamentals", "iOS Fundamentals", "Swift Programming", "Database Design", "Programming in Java", "Web Development in PHP", "Machine Learning", "Data Analytics with R", "Learn Ruby - The Hard Way", "Data Structures in C++"]
     
@@ -57,12 +58,16 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        if component == 0{
-            self.lblCollegeName.text = self.collegeArray[row]
-        }else{
-            self.lblCourseName.text = self.courseArray[row]
-        }
+//        if component == 0{
+//            self.lblCollegeName.text = self.collegeArray[row]
+//        }else{
+//            self.lblCourseName.text = self.courseArray[row]
+//        }
         
+        let strCollegeName = self.collegeArray[pickerView.selectedRow(inComponent: 0)]
+        let strCourseName = self.courseArray[pickerView.selectedRow(inComponent: 1)]
+        
+        self.lblAllDetail.text = "\(strCollegeName) - \(strCourseName)"
         
     }
 }

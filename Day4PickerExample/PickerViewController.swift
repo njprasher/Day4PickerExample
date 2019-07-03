@@ -8,8 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PickerViewController: UIViewController {
 
+    @IBOutlet weak var lblCourseName: UILabel!
+    
+    @IBOutlet weak var pickerCourseName: UIPickerView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

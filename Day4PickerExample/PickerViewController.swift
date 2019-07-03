@@ -10,8 +10,10 @@ import UIKit
 
 class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    @IBOutlet weak var lblCourseName: UILabel!
-    @IBOutlet weak var lblCollegeName: UILabel!
+    @IBOutlet weak var txtCollegeName: UITextField!
+    
+    @IBOutlet weak var txtCourseName: UITextField!
+    
     @IBOutlet weak var lblAllDetail: UILabel!
     @IBOutlet weak var pickerCourseName: UIPickerView!
     var courseArray = ["Android Fundamentals", "iOS Fundamentals", "Swift Programming", "Database Design", "Programming in Java", "Web Development in PHP", "Machine Learning", "Data Analytics with R", "Learn Ruby - The Hard Way", "Data Structures in C++"]
@@ -70,5 +72,20 @@ class PickerViewController: UIViewController, UIPickerViewDelegate, UIPickerView
         self.lblAllDetail.text = "\(strCollegeName) - \(strCourseName)"
         
     }
+    
+    //add value on button press
+    
+    @IBAction func btnAddCollege(_ sender: UIButton) {
+        collegeArray.append(txtCollegeName.text ?? "")
+        pickerCourseName.reloadAllComponents()
+    }
+    
+    @IBAction func btnAddCourse(_ sender: UIButton) {
+        courseArray.append(txtCourseName.text ?? "")
+        pickerCourseName.reloadAllComponents()
+
+    }
+    
+    
 }
 

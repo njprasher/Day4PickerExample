@@ -20,6 +20,8 @@ class TableViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         self.tblCourseList.delegate = self
         self.tblCourseList.dataSource = self
+        
+        self.tblCourseList.register(UITableViewCell.self, forCellReuseIdentifier: "cellCourse")
         // Do any additional setup after loading the view.
     }
     
@@ -29,11 +31,11 @@ class TableViewController: UIViewController,UITableViewDelegate, UITableViewData
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "cellCourse")
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellCourse", for: indexPath)
         cell.textLabel?.text = self.courseArray[indexPath.row]
         
         return cell
+        
     }
 
     /*
